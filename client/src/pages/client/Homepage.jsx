@@ -10,7 +10,7 @@ export function Homepage() {
                 >
                     {/* Hero Image */}
                     <img
-                        src="../../src/assets/hero.png"
+                        src="/hero.png"
                         alt="Elderly couple enjoying a peaceful retirement"
                         className="absolute inset-0 w-full h-full object-cover"
                     />
@@ -40,7 +40,7 @@ export function Homepage() {
 
                             <div className="mt-9">
                                 <a
-                                    href="/services"
+                                    href="/claim-type"
                                     className="inline-flex items-center gap-2 bg-black text-white px-6 py-3.5 rounded-lg font-medium hover:bg-gray-800 transition-colors"
                                 >
                                     Explore Pension Services

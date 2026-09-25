@@ -1,6 +1,6 @@
 
 
-import heroImage from "../../assets/about-hero.png";
+import heroImage from "/about-hero.png";
 
 // Add these imports when you have the images:
 // import purposeImage from "../../assets/about-purpose.png";
@@ -383,7 +383,7 @@ export function About() {
                             </p>
 
                             <a
-                                href="/services"
+                                href="/eligibility"
                                 className="inline-flex items-center gap-2 mt-8 bg-white text-black px-6 py-3.5 rounded-lg font-medium hover:bg-gray-200 transition-colors"
                             >
                                 Explore Pension Services
