@@ -1,10 +1,17 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
     {
-        name: {
+        fullName: {
             type: String,
             required: true,
+            trim: true
+        },
+
+        nic: {
+            type: String,
+            required: true,
+            unique: true,
             trim: true
         },
 
@@ -16,33 +23,31 @@ const userSchema = new mongoose.Schema(
             trim: true
         },
 
-        password: {
+        phone: {
             type: String,
             required: true,
-            minlength: 6
+            trim: true
+        },
+
+        dateOfBirth: {
+            type: Date,
+            required: true
+        },
+
+        address: {
+            type: String,
+            required: true,
+            trim: true
         },
 
         role: {
             type: String,
-            enum: ["PENSIONER", "NOMINEE", "ADMIN"],
+            enum: ["pensioner", "nominee", "admin"],
             required: true
         },
 
-        phone: {
-            type: String,
-            trim: true
-        },
-
-        nic: {
-            type: String,
-            unique: true,
-            sparse: true,
-            trim: true
-        },
-
-        isActive: {
-            type: Boolean,
-            default: true
+        password: {
+            type: String
         }
     },
     {
@@ -50,4 +55,6 @@ const userSchema = new mongoose.Schema(
     }
 );
 
-module.exports = mongoose.model("User", userSchema);
+const User = mongoose.model("User", userSchema);
+
+export default User;
