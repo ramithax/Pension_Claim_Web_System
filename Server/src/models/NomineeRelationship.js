@@ -4,41 +4,25 @@ const nomineeRelationshipSchema = new mongoose.Schema(
     {
         pensionerId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "User",
-            required: true
+            ref: "Pensioner",
+            required: true,
         },
 
         nomineeId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "User",
-            required: true
+            ref: "Nominee",
+            required: true,
         },
 
         relationship: {
             type: String,
             required: true,
-            trim: true
+            trim: true,
         },
-
-        nomineeNumber: {
-            type: Number,
-            enum: [1, 2],
-            required: true
-        }
     },
     {
-        timestamps: true
+        timestamps: true,
     }
 );
 
-nomineeRelationshipSchema.index(
-    { pensionerId: 1, nomineeNumber: 1 },
-    { unique: true }
-);
-
-const NomineeRelationship = mongoose.model(
-    "NomineeRelationship",
-    nomineeRelationshipSchema
-);
-
-export default NomineeRelationship;
+export default mongoose.model("NomineeRelationship", nomineeRelationshipSchema);

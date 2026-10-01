@@ -4,51 +4,30 @@ const pensionClaimSchema = new mongoose.Schema(
     {
         pensionerId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "User",
-            required: true
+            ref: "Pensioner",
+            required: true,
         },
 
-        applicantId: {
+        nomineeId: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "User",
-            required: true
-        },
-
-        claimType: {
-            type: String,
-            enum: ["pensioner", "nominee"],
-            required: true
+            ref: "Nominee",
+            required: true,
         },
 
         status: {
             type: String,
-            enum: [
-                "draft",
-                "submitted",
-                "under_review",
-                "approved",
-                "rejected"
-            ],
-            default: "draft"
-        },
-
-        pensionNumber: {
-            type: String,
-            trim: true
+            enum: ["Pending", "Approved", "Rejected"],
+            default: "Pending",
         },
 
         submittedAt: {
-            type: Date
-        }
+            type: Date,
+            default: Date.now,
+        },
     },
     {
-        timestamps: true
+        timestamps: true,
     }
 );
 
-const PensionClaim = mongoose.model(
-    "PensionClaim",
-    pensionClaimSchema
-);
-
-export default PensionClaim;
+export default mongoose.model("PensionClaim", pensionClaimSchema);

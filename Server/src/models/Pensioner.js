@@ -1,35 +1,36 @@
 import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema(
+const pensionerSchema = new mongoose.Schema(
     {
-        name: {
-            type: String,
+        userId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
             required: true,
-            trim: true,
         },
 
-        email: {
+        employeeId: {
             type: String,
             required: true,
             unique: true,
             trim: true,
-            lowercase: true,
         },
 
-        password: {
+        nic: {
             type: String,
+            required: true,
+            unique: true,
+            trim: true,
+        },
+
+        dateOfBirth: {
+            type: Date,
             required: true,
         },
 
-        phone: {
+        address: {
             type: String,
             required: true,
-        },
-
-        role: {
-            type: String,
-            enum: ["Pensioner", "Nominee", "Admin"],
-            required: true,
+            trim: true,
         },
     },
     {
@@ -37,4 +38,4 @@ const userSchema = new mongoose.Schema(
     }
 );
 
-export default mongoose.model("User", userSchema);
+export default mongoose.model("Pensioner", pensionerSchema);

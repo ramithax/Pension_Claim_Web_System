@@ -44,7 +44,7 @@ export function ClaimType() {
                                 </p>
 
                                 <button
-                                    onClick={() => navigate("/pensioner")}
+                                    onClick={() => navigate("/pensioner-register?role=Pensioner")}
                                     className="mt-5 w-full rounded-full bg-gray-900 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-gray-800"
                                 >
                                     Continue
@@ -74,7 +74,7 @@ export function ClaimType() {
                                 </p>
 
                                 <button
-                                    onClick={() => navigate("/nominee")}
+                                    onClick={() => navigate("/nominee-register?role=Nominee")}
                                     className="mt-5 w-full rounded-full bg-gray-900 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-gray-800"
                                 >
                                     Continue

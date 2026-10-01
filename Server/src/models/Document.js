@@ -5,57 +5,35 @@ const documentSchema = new mongoose.Schema(
         claimId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "PensionClaim",
-            required: true
+            required: true,
         },
 
         documentType: {
             type: String,
-            enum: [
-                "nic",
-                "birth_certificate",
-                "death_certificate",
-                "service_letter",
-                "relationship_document",
-                "bank_passbook",
-                "pension_document",
-                "other"
-            ],
-            required: true
+            required: true,
+            trim: true,
         },
 
         fileUrl: {
             type: String,
-            required: true
+            required: true,
         },
 
         status: {
             type: String,
-            enum: [
-                "pending",
-                "verified",
-                "rejected"
-            ],
-            default: "pending"
+            enum: ["Pending", "Approved", "Resubmit", "Rejected"],
+            default: "Pending",
         },
 
-        remarks: {
+        adminComment: {
             type: String,
-            trim: true
+            default: "",
+            trim: true,
         },
-
-        uploadedAt: {
-            type: Date,
-            default: Date.now
-        }
     },
     {
-        timestamps: true
+        timestamps: true,
     }
 );
 
-const Document = mongoose.model(
-    "Document",
-    documentSchema
-);
-
-export default Document;
+export default mongoose.model("Document", documentSchema);

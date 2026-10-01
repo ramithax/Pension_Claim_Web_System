@@ -3,7 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import userRoutes from "./routes/userRoutes.js";
-import claimRoutes from "./routes/claimRoutes.js";
+import pensionerRoutes from "./routes/pensionerRoutes.js";
 
 dotenv.config();
 
@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/users", userRoutes);
-app.use("/api/claims", claimRoutes);
+app.use("/api/pensioners", pensionerRoutes);
 
 app.get("/", (req, res) => {
     res.json({
