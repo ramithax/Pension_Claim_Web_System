@@ -7,7 +7,7 @@ import { About } from "./pages/client/About"
 import { ClaimType } from "./pages/client/ClaimType";
 import { Eligibility } from "./pages/client/Eligibility";
 import { Documents } from "./pages/client/Documents";
-import { PensionerRegistration } from "./pages/client/PensionerRegistration";
+import { UserRegistration } from "./pages/client/UserRegistration";
 import { NomineeRegistration } from "./pages/client/NomineeRegistration";
 import { PensionerDetails } from "./pages/client/PensionerDetails";
 import { LoginPage } from "./pages/client/Loginpage";
@@ -19,7 +19,7 @@ function App() {
 
         <Route element={<PublicLayout />}>
           <Route path="/" element={<Homepage />} />
-          <Route path="/pensioner-register" element={<PensionerRegistration />} />
+          <Route path="/user-register" element={<UserRegistration />} />
           <Route path="/nominee-register" element={<NomineeRegistration />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/pensioner/details" element={<PensionerDetails />} />

@@ -1,10 +1,22 @@
 import mongoose from "mongoose";
 
-const pensionClaimSchema = new mongoose.Schema(
+const nomineeClaimSchema = new mongoose.Schema(
     {
         pensionerId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Pensioner",
+            required: true,
+        },
+
+        nomineeId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Nominee",
+            required: true,
+        },
+
+        nominationId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Nomination",
             required: true,
         },
 
@@ -29,4 +41,4 @@ const pensionClaimSchema = new mongoose.Schema(
     }
 );
 
-export default mongoose.model("PensionClaim", pensionClaimSchema);
+export default mongoose.model("NomineeClaim", nomineeClaimSchema);

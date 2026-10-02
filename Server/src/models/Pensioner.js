@@ -6,6 +6,7 @@ const pensionerSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: "User",
             required: true,
+            unique: true,
         },
 
         employeeId: {
@@ -22,6 +23,12 @@ const pensionerSchema = new mongoose.Schema(
             trim: true,
         },
 
+        gender: {
+            type: String,
+            enum: ["Male", "Female"],
+            required: true,
+        },
+
         dateOfBirth: {
             type: Date,
             required: true,
@@ -31,6 +38,24 @@ const pensionerSchema = new mongoose.Schema(
             type: String,
             required: true,
             trim: true,
+        },
+
+        employmentStatus: {
+            type: String,
+            enum: ["Working", "Retired", "Deceased"],
+            default: "Working",
+        },
+
+        pensionStatus: {
+            type: String,
+            enum: [
+                "NotApplied",
+                "Pending",
+                "Approved",
+                "Active",
+                "TransferredToNominee"
+            ],
+            default: "NotApplied",
         },
     },
     {

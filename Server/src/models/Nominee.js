@@ -6,6 +6,7 @@ const nomineeSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: "User",
             required: true,
+            unique: true,
         },
 
         nic: {
@@ -13,6 +14,12 @@ const nomineeSchema = new mongoose.Schema(
             required: true,
             unique: true,
             trim: true,
+        },
+
+        gender: {
+            type: String,
+            enum: ["Male", "Female"],
+            required: true,
         },
 
         dateOfBirth: {
